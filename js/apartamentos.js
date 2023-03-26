@@ -1,0 +1,178 @@
+const apartamentos = [
+	{
+		image: 'build/img/apto1.jpg',
+		bathroom: 3,
+		habitaciones: 4,
+		precio: 1200000,
+		parqueadero: 1,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Apartamento',
+		servicio: 'Arriendo',
+		year: 2023
+	},
+	{
+		image: 'build/img/apto2.jpg',
+		bathroom: 1,
+		habitaciones: 1,
+		precio: 900000,
+		parqueadero: 1,
+		ciudad: 'Bogotá',
+		inmueble: 'ApartaEstudio',
+		servicio: 'Arriendo',
+		year: 2021
+	 },
+	{
+		image: 'build/img/apto3.jpg',
+		bathroom: 2,
+		habitaciones: 4,
+		precio: 100000000,
+		parqueadero: 2,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Apartamento',
+		servicio: 'Venta',
+		year: 2021
+	},
+	{
+		image: 'build/img/apto4.jpg',
+		bathroom: 2,
+		habitaciones: 2,
+		precio: 1100000,
+		parqueadero: 1,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2022
+	},
+	{
+		image: 'build/img/apto5.jpg',
+		bathroom: 1,
+		habitaciones: 1,
+		precio: 1800000,
+		parqueadero: 2,
+		ciudad: 'Bogota',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2019
+	},
+	{
+		image: 'build/img/apto6.jpg',
+		bathroom: 1,
+		habitaciones: 1,
+		precio: 1300000,
+		parqueadero: 1,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Apartamento',
+		servicio: 'Arriendo',
+		year: 2018
+	},
+	{
+		image: 'build/img/apto7.jpg',
+		bathroom: 1,
+		habitaciones: 2,
+		precio: 150000000,
+		parqueadero: 2,
+		ciudad: 'Bucaramanga',
+		inmueble: 'ApartaEstudio',
+		servicio: 'Venta',
+		year: 2015
+	},
+	{
+		image: 'build/img/apto8.jpg',
+		bathroom: 1,
+		habitaciones: 3,
+		precio: 2000000,
+		parqueadero: 1,
+		ciudad: 'Bogota',
+		inmueble: 'Apartamento',
+		servicio: 'Arriendo',
+		year: 2013
+	},
+	{
+		image: 'build/img/apto9.jpg',
+		bathroom: 2,
+		habitaciones: 4,
+		precio: 200000000,
+		parqueadero: 2,
+		ciudad: 'Bogota',
+		inmueble: 'Apartamento',
+		servicio: 'Venta',
+		year: 2014
+	},
+	{
+		image: 'build/img/apto10.jpg',
+		bathroom: 1,
+		habitaciones: 3,
+		precio: 1500000,
+		parqueadero: 1,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2015
+	},
+	{
+		image: 'build/img/apto11.jpg',
+		bathroom: 1,
+		habitaciones: 2,
+		precio: 1500000,
+		parqueadero: 1,
+		ciudad: 'Bogota',
+		inmueble: 'ApartaEstudio',
+		servicio: 'Arriendo',
+		year: 2014
+	},
+	{
+		image: 'build/img/apto12.jpg',
+		bathroom: 1,
+		habitaciones: 2,
+		precio: 1500000,
+		parqueadero: 1,
+		ciudad: 'Bogota',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2023
+	},
+	{
+		image: 'build/img/apto13.jpg',
+		bathroom: 2,
+		habitaciones: 2,
+		precio: 1900000,
+		parqueadero: 1,
+		ciudad: 'Bucaramanga',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2017
+	},
+	{
+		image: 'build/img/apto14.jpg',
+		bathroom: 2,
+		habitaciones: 2,
+		precio: 1400000,
+		parqueadero: 2,
+		ciudad: 'Bogota',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2018
+	},
+	{
+		image: 'build/img/apto15.jpg',
+		bathroom: 1,
+		habitaciones: 2,
+		precio: 18000000,
+		parqueadero: 2,
+		ciudad: 'Bucaramanga',
+		inmueble: 'ApartaEstudio',
+		servicio: 'Venta',
+		year: 2017
+	},
+	{
+		image: 'build/img/apto16.jpg',
+		bathroom: 1,
+		habitaciones: 1,
+		precio: 1600000,
+		parqueadero: 1,
+		ciudad: 'Bogota',
+		inmueble: 'Casa',
+		servicio: 'Arriendo',
+		year: 2022
+	},
+];
