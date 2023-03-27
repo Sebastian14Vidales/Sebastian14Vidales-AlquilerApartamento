@@ -32,7 +32,7 @@ inmueble.addEventListener('change', e => {
 });
 
 function mostrarContenido(apartamentos) {
-
+    borrarFiltro();
     apartamentos.forEach(apto => {
         
         // crear span
@@ -137,4 +137,8 @@ function filtrarInmueble(apartamentos) {
     return apartamentos;
 }
 
-
+function borrarFiltro() {
+    while(row.firstChild) {
+        row.removeChild(row.firstChild);
+    }
+}
