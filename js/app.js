@@ -25,9 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 inmueble.addEventListener('change', e => {
-    // e.preventDefault();
     actual.inmueble = e.target.value;
-    console.log(actual.inmueble);
+    filtrarApartamentos();
+});
+
+habitaciones.addEventListener('change', e => {
+    actual.habitaciones = Number(e.target.value);
     filtrarApartamentos();
 });
 
@@ -121,10 +124,12 @@ function llenarCampo() {
 }
 
 function filtrarApartamentos() {
-    const nuevoApartamento = apartamentos.filter(filtrarInmueble);
+    const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion);
     if(nuevoApartamento.length) {
         mostrarContenido(nuevoApartamento);
-        return;
+        
+    } else {
+        borrarFiltro();
     }
 }
 
@@ -133,6 +138,17 @@ function filtrarInmueble(apartamentos) {
     const { inmueble } = actual;
     if( inmueble) {
         return apartamentos.inmueble === inmueble;
+    }
+    return apartamentos;
+}
+
+function filtrarHabitacion(apartamentos) {
+    console.log(typeof(actual.habitaciones));
+    console.log(typeof(apartamentos.habitaciones));
+    
+    const { habitaciones } = actual;
+    if( habitaciones) {
+        return apartamentos.habitaciones === habitaciones;
     }
     return apartamentos;
 }
