@@ -494,3 +494,20 @@ legend + * {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+.cop {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.mantimiento {
+  font-size: 0.6rem;
+  color: #6c757d;
+}
+
+.hover-imagen {
+  transition: scale 300ms ease-in;
+}
+.hover-imagen:hover {
+  scale: 1.1;
+}

@@ -1,6 +1,6 @@
+build/css/app.css
 node_modules
 src
 gulpfile.js
 package.json
 package-lock.json
-build/css/app.css
