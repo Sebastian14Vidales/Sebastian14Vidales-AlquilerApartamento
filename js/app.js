@@ -54,6 +54,16 @@ parqueaderos.addEventListener('change', e => {
     filtrarApartamentos();
 });
 
+ciudad.addEventListener('change', e => {
+    actual.ciudad = e.target.value;
+    filtrarApartamentos();
+});
+
+year.addEventListener('change', e => {
+    actual.year = Number(e.target.value);
+    filtrarApartamentos();
+});
+
 function mostrarContenido(apartamentos) {
     borrarFiltro();
     apartamentos.forEach(apto => {
@@ -144,7 +154,7 @@ function llenarCampo() {
 }
 
 function filtrarApartamentos() {
-    const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarBath).filter(filtrarParking);
+    const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarBath).filter(filtrarParking).filter(filtrarCiudad).filter(filtrarYear);
     if(nuevoApartamento.length) {
         mostrarContenido(nuevoApartamento);
         
@@ -203,6 +213,24 @@ function filtrarParking(apartamentos) {
     const { parqueaderos } = actual;
     if( parqueaderos) {
         return apartamentos.parqueadero === parqueaderos;
+    }
+    return apartamentos;
+}
+
+function filtrarCiudad(apartamentos) {
+    
+    const { ciudad } = actual;
+    if( ciudad) {
+        return apartamentos.ciudad === ciudad;
+    }
+    return apartamentos;
+}
+
+function filtrarYear(apartamentos) {
+    
+    const { year } = actual;
+    if( year) {
+        return apartamentos.year === year;
     }
     return apartamentos;
 }
