@@ -511,3 +511,7 @@ legend + * {
 .hover-imagen:hover {
   scale: 1.1;
 }
+
+.error {
+  grid-column: 1 / 5;
+}

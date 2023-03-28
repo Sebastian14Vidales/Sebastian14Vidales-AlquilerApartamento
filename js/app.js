@@ -1,12 +1,12 @@
 const actual = {
-    inmueble : '',
-    habitaciones : '',
-    minimo : '',
-    maximo : '',
-    bathroom : '',
-    parqueaderos : '',
-    ciudad : '',
-    year : ''
+    inmueble: '',
+    habitaciones: '',
+    minimo: 0,
+    maximo: 0,
+    bathroom: '',
+    parqueaderos: '',
+    ciudad: '',
+    year: ''
 }
 
 const inmueble = document.querySelector('#inmueble');
@@ -18,6 +18,9 @@ const parqueaderos = document.querySelector('#parqueaderos');
 const ciudad = document.querySelector('#ciudad');
 const year = document.querySelector('#year');
 const row = document.querySelector('#row');
+const cards = document.querySelector('#cards');
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     mostrarContenido(apartamentos);
@@ -67,7 +70,7 @@ year.addEventListener('change', e => {
 function mostrarContenido(apartamentos) {
     borrarFiltro();
     apartamentos.forEach(apto => {
-        
+
         // crear span
         const spanCop = document.createElement('span');
 
@@ -77,7 +80,7 @@ function mostrarContenido(apartamentos) {
         const divCardInfo = document.createElement('DIV');
         const divCardFooter = document.createElement('DIV');
         const imagen = document.createElement('IMG');
-        const precioTitulo = document.createElement('H3');
+        const precioTitulo = document.createElement('H4');
         const tipoInmueble = document.createElement('P');
         const tipoServicio = document.createElement('P');
         const habitacion = document.createElement('P');
@@ -141,7 +144,7 @@ function mostrarContenido(apartamentos) {
         row.appendChild(divCard);
     });
     console.log(row);
-    
+
 }
 
 function llenarCampo() {
@@ -155,88 +158,95 @@ function llenarCampo() {
 
 function filtrarApartamentos() {
     const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarBath).filter(filtrarParking).filter(filtrarCiudad).filter(filtrarYear);
-    if(nuevoApartamento.length) {
+    if (nuevoApartamento.length) {
         mostrarContenido(nuevoApartamento);
-        
     } else {
-        borrarFiltro();
+        mostrarError(nuevoApartamento);
     }
 }
 
 function filtrarInmueble(apartamentos) {
-    
+
     const { inmueble } = actual;
-    if( inmueble) {
+    if (inmueble) {
         return apartamentos.inmueble === inmueble;
     }
     return apartamentos;
 }
 
 function filtrarHabitacion(apartamentos) {
-    
+
     const { habitaciones } = actual;
-    if( habitaciones) {
+    if (habitaciones) {
         return apartamentos.habitaciones === habitaciones;
     }
     return apartamentos;
 }
 
 function filtrarMinimo(apartamentos) {
-    
+
     const { minimo } = actual;
-    if( minimo) {
+    if (minimo) {
         return apartamentos.precio >= minimo;
     }
     return apartamentos;
 }
 
 function filtrarMaximo(apartamentos) {
-    
+
     const { maximo } = actual;
-    if( maximo) {
+    if (maximo) {
         return apartamentos.precio <= maximo;
     }
     return apartamentos;
 }
 
 function filtrarBath(apartamentos) {
-    
+
     const { bathroom } = actual;
-    if( bathroom) {
+    if (bathroom) {
         return apartamentos.bathroom === bathroom;
     }
     return apartamentos;
 }
 
 function filtrarParking(apartamentos) {
-    
+
     const { parqueaderos } = actual;
-    if( parqueaderos) {
+    if (parqueaderos) {
         return apartamentos.parqueadero === parqueaderos;
     }
     return apartamentos;
 }
 
 function filtrarCiudad(apartamentos) {
-    
+
     const { ciudad } = actual;
-    if( ciudad) {
+    if (ciudad) {
         return apartamentos.ciudad === ciudad;
     }
     return apartamentos;
 }
 
 function filtrarYear(apartamentos) {
-    
+
     const { year } = actual;
-    if( year) {
+    if (year) {
         return apartamentos.year === year;
     }
     return apartamentos;
 }
 
 function borrarFiltro() {
-    while(row.firstChild) {
+    while (row.firstChild) {
         row.removeChild(row.firstChild);
     }
+}
+
+function mostrarError() {
+    borrarFiltro();
+    const error = document.createElement('DIV');
+    error.classList.add('p-2', 'bg-danger', 'text-white', 'text-uppercase', 'text-center', 'fw-bold', 'error');
+    error.textContent = 'No se encuentran los resultados';
+    row.appendChild(error);
 }
