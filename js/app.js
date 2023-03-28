@@ -34,6 +34,26 @@ habitaciones.addEventListener('change', e => {
     filtrarApartamentos();
 });
 
+minimo.addEventListener('change', e => {
+    actual.minimo = Number(e.target.value);
+    filtrarApartamentos();
+});
+
+maximo.addEventListener('change', e => {
+    actual.maximo = Number(e.target.value);
+    filtrarApartamentos();
+});
+
+bathroom.addEventListener('change', e => {
+    actual.bathroom = Number(e.target.value);
+    filtrarApartamentos();
+});
+
+parqueaderos.addEventListener('change', e => {
+    actual.parqueaderos = Number(e.target.value);
+    filtrarApartamentos();
+});
+
 function mostrarContenido(apartamentos) {
     borrarFiltro();
     apartamentos.forEach(apto => {
@@ -124,7 +144,7 @@ function llenarCampo() {
 }
 
 function filtrarApartamentos() {
-    const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion);
+    const nuevoApartamento = apartamentos.filter(filtrarInmueble).filter(filtrarHabitacion).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarBath).filter(filtrarParking);
     if(nuevoApartamento.length) {
         mostrarContenido(nuevoApartamento);
         
@@ -143,12 +163,46 @@ function filtrarInmueble(apartamentos) {
 }
 
 function filtrarHabitacion(apartamentos) {
-    console.log(typeof(actual.habitaciones));
-    console.log(typeof(apartamentos.habitaciones));
     
     const { habitaciones } = actual;
     if( habitaciones) {
         return apartamentos.habitaciones === habitaciones;
+    }
+    return apartamentos;
+}
+
+function filtrarMinimo(apartamentos) {
+    
+    const { minimo } = actual;
+    if( minimo) {
+        return apartamentos.precio >= minimo;
+    }
+    return apartamentos;
+}
+
+function filtrarMaximo(apartamentos) {
+    
+    const { maximo } = actual;
+    if( maximo) {
+        return apartamentos.precio <= maximo;
+    }
+    return apartamentos;
+}
+
+function filtrarBath(apartamentos) {
+    
+    const { bathroom } = actual;
+    if( bathroom) {
+        return apartamentos.bathroom === bathroom;
+    }
+    return apartamentos;
+}
+
+function filtrarParking(apartamentos) {
+    
+    const { parqueaderos } = actual;
+    if( parqueaderos) {
+        return apartamentos.parqueadero === parqueaderos;
     }
     return apartamentos;
 }
