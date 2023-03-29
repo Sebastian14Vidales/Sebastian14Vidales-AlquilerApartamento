@@ -16,7 +16,7 @@ const apartamentos = [
 		habitaciones: 1,
 		precio: 900000,
 		parqueadero: 1,
-		ciudad: 'Bogotá',
+		ciudad: 'Bogota',
 		inmueble: 'ApartaEstudio',
 		servicio: 'Arriendo',
 		year: 2021
