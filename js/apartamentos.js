@@ -157,7 +157,7 @@ const apartamentos = [
 		image: 'build/img/apto15.jpg',
 		bathroom: 1,
 		habitaciones: 2,
-		precio: 18000000,
+		precio: 180000000,
 		parqueadero: 2,
 		ciudad: 'Bucaramanga',
 		inmueble: 'ApartaEstudio',

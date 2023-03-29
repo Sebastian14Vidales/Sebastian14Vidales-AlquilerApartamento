@@ -1,12 +1,19 @@
 const actual = {
     inmueble: '',
-    habitaciones: '',
+    habitaciones: 0,
     minimo: 0,
     maximo: 0,
-    bathroom: '',
-    parqueaderos: '',
+    bathroom: 0,
+    parqueaderos: 0,
     ciudad: '',
-    year: ''
+    year: 0
+}
+
+// Formatear número
+let format = {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
 }
 
 const inmueble = document.querySelector('#inmueble');
@@ -38,12 +45,12 @@ habitaciones.addEventListener('change', e => {
 });
 
 minimo.addEventListener('change', e => {
-    actual.minimo = Number(e.target.value);
+    actual.minimo = e.target.value;
     filtrarApartamentos();
 });
 
 maximo.addEventListener('change', e => {
-    actual.maximo = Number(e.target.value);
+    actual.maximo = e.target.value;
     filtrarApartamentos();
 });
 
@@ -63,13 +70,15 @@ ciudad.addEventListener('change', e => {
 });
 
 year.addEventListener('change', e => {
-    actual.year = Number(e.target.value);
+    actual.year = e.target.value;
     filtrarApartamentos();
 });
 
 function mostrarContenido(apartamentos) {
     borrarFiltro();
     apartamentos.forEach(apto => {
+
+        let numberWithCop = apto.precio.toLocaleString("es-CO", format);
 
         // crear span
         const spanCop = document.createElement('span');
@@ -101,7 +110,7 @@ function mostrarContenido(apartamentos) {
 
 
         precioTitulo.classList.add('fw-bold', 'card-title');
-        precioTitulo.textContent = `$ ${apto.precio} `;
+        precioTitulo.textContent = `${numberWithCop} `;
         spanCop.classList.add('fw-normal', 'cop');
         spanCop.textContent = 'COP';
         precioTitulo.appendChild(spanCop);
@@ -143,8 +152,6 @@ function mostrarContenido(apartamentos) {
 
         row.appendChild(divCard);
     });
-    console.log(row);
-
 }
 
 function llenarCampo() {
@@ -175,7 +182,8 @@ function filtrarInmueble(apartamentos) {
 }
 
 function filtrarHabitacion(apartamentos) {
-
+    // console.log(typeof(actual.habitaciones));
+    // console.log(typeof(apartamentos.habitaciones));
     const { habitaciones } = actual;
     if (habitaciones) {
         return apartamentos.habitaciones === habitaciones;
