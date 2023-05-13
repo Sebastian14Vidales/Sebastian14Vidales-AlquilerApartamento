@@ -182,8 +182,7 @@ function filtrarInmueble(apartamentos) {
 }
 
 function filtrarHabitacion(apartamentos) {
-    // console.log(typeof(actual.habitaciones));
-    // console.log(typeof(apartamentos.habitaciones));
+    
     const { habitaciones } = actual;
     if (habitaciones) {
         return apartamentos.habitaciones === habitaciones;
